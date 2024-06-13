@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Navigateur Web</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Bienvenue sur mon navigateur web en Node.js</h1>
+    <p>Entrez une URL pour ouvrir dans un nouvel onglet :</p>
+    <input type="text" id="urlInput" placeholder="https://example.com">
+    <button id="newTabButton">Nouvel Onglet</button>
+    <hr>
+    <h2>Cookies</h2>
+    <input type="text" id="cookieUrl" placeholder="URL pour les cookies">
+    <button id="getCookies">Obtenir les cookies</button>
+    <pre id="cookiesOutput"></pre>
+  </header>
+  <main id="mainContent">
+    <div id="tabsContainer"></div>
+    <div id="webviewsContainer"></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
