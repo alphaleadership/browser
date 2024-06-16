@@ -1,3 +1,4 @@
+// Importer les modules nécessaires
 
 
 // Ajouter un nouvel onglet et une nouvelle webview
@@ -13,30 +14,36 @@ function addNewTab(url = null) {
     }
   }
 
-  const tabId = `tab-${Date.now()}`;
-  const webviewId = `webview-${Date.now()}`;
+  const timestamp = Date.now();
+  const tabId = `tab-${timestamp}`;
+  const webviewId = `webview-${timestamp}`;
 
-  createTabElement(tabId, url);
+  createTabElement(tabId, webviewId, url);
   createWebviewElement(webviewId, url);
-  
+
   setActiveTab(tabId, webviewId);
 }
 
-// Créer un élément d'onglet avec un bouton de fermeture
-function createTabElement(tabId, url) {
+// Créer un élément d'onglet avec un bouton de fermeture et de rechargement
+function createTabElement(tabId, webviewId, url) {
   const tab = document.createElement('div');
   tab.classList.add('tab');
   tab.id = tabId;
-  
+
   const tabContent = document.createElement('span');
-  tabContent.textContent = url;
-  tabContent.addEventListener('click', () => setActiveTab(tabId, `webview-${tabId.split('-')[1]}`));
-  
+  tabContent.textContent = extractHostname(url);
+  tabContent.addEventListener('click', () => setActiveTab(tabId, webviewId));
+
+  const reloadButton = document.createElement('button');
+  reloadButton.textContent = '⟳';
+  reloadButton.addEventListener('click', (event) => reloadTab(event, webviewId));
+
   const closeButton = document.createElement('button');
   closeButton.textContent = 'x';
-  closeButton.addEventListener('click', (event) => closeTab(event, tabId, `webview-${tabId.split('-')[1]}`));
+  closeButton.addEventListener('click', (event) => closeTab(event, tabId, webviewId));
 
   tab.appendChild(tabContent);
+  tab.appendChild(reloadButton);
   tab.appendChild(closeButton);
 
   document.getElementById('tabsContainer').appendChild(tab);
@@ -56,7 +63,25 @@ function createWebviewElement(webviewId, url) {
     addNewTab(event.url);
   });
 
+  // Mettre à jour le nom de domaine dans l'onglet lorsque la page est chargée
+  webview.addEventListener('did-finish-load', () => {
+    const tab = document.getElementById(`tab-${webviewId.split('-')[1]}`);
+    const tabContent = tab.querySelector('span');
+    tabContent.textContent = extractHostname(webview.getURL());
+  });
+
   document.getElementById('webviewsContainer').appendChild(webview);
+}
+
+// Extraire le nom de domaine d'une URL
+function extractHostname(url) {
+  let hostname;
+  try {
+    hostname = new URL(url).hostname;
+  } catch (e) {
+    hostname = url;
+  }
+  return hostname;
 }
 
 // Définir l'onglet actif
@@ -74,6 +99,13 @@ function setActiveTab(tabId, webviewId) {
   // Activer l'onglet et afficher la webview correspondants
   document.getElementById(tabId).classList.add('active');
   document.getElementById(webviewId).style.display = 'block';
+}
+
+// Recharger un onglet
+function reloadTab(event, webviewId) {
+  event.stopPropagation();
+  const webview = document.getElementById(webviewId);
+  webview.reload();
 }
 
 // Fermer un onglet et sa webview correspondante
@@ -97,29 +129,12 @@ function closeTab(event, tabId, webviewId) {
   webview.remove();
 }
 
-// Ajouter un événement pour afficher les cookies
-document.getElementById('getCookies').addEventListener('click', displayCookies);
 
-// Fonction pour afficher les cookies
-async function displayCookies() {
-  const url = document.getElementById('cookieUrl').value.trim();
-  
-  if (!url) {
-    alert('Veuillez entrer une URL valide.');
-    return;
-  }
 
-  try {
-    const cookies = await api.getCookies(url);
-    document.getElementById('cookiesOutput').textContent = JSON.stringify(cookies, null, 2);
-  } catch (error) {
-    console.error('Erreur lors de la récupération des cookies:', error);
-    alert('Une erreur est survenue lors de la récupération des cookies.');
-  }
-}
 
 // Écouter l'événement modal_show pour afficher un modal
 window.addEventListener('modal_show', function (e) {
   // Logique pour afficher un modal
   console.log('Modal show event triggered:', e);
 }, false);
+

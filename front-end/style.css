@@ -17,21 +17,21 @@ header h1 {
   margin: 0;
 }
 
-header p {
-  margin-top: 5px;
+header p, header h2 {
+  margin: 5px 0;
 }
 
 #mainContent {
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* S'assurer que le contenu ne déborde pas */
 }
 
 #tabsContainer {
-  flex: 0 0 auto; /* Taille automatique, ne grandit pas */
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .tab {
@@ -40,6 +40,8 @@ header p {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .tab.active {
@@ -47,41 +49,25 @@ header p {
 }
 
 #webviewsContainer {
-  flex: 1; /* Prend tout l'espace restant */
+  flex: 1;
   display: flex;
-  flex-direction: column;
+  position: relative; /* Permet de positionner les webviews en absolu */
 }
 
 .webview {
-  flex: 1; /* Prend tout l'espace disponible dans #webviewsContainer */
-  border: 1px solid #ccc;
-}
-/* Styliser les webviews pour les popups */
-.webview.popup {
-  width: 600px;
-  height: 400px;
-  border: 1px solid #ccc;
-  margin-top: 10px;
-}/* Styliser les webviews pour les popups */
-.webview {
-  width: 800px; /* Taille par défaut */
-  height: 600px;
-  border: 1px solid #ccc;
-  margin-top: 10px;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: none; /* Masquer toutes les webviews par défaut */
+  position: absolute; /* Permet de superposer les webviews */
+  top: 0;
+  left: 0;
 }
 
-.webview.popup {
-  width: 600px; /* Taille spécifique pour les popups */
-  height: 400px;
+.webview.active {
+  display: block; /* Afficher uniquement la webview active */
 }
-/* Styliser les iframes */
-.iframe {
-  width: 800px; /* Taille par défaut */
-  height: 600px;
-  border: 1px solid #ccc;
-  margin-top: 10px;
-}
-
 
 #cookiesOutput {
   white-space: pre-wrap;
@@ -89,4 +75,5 @@ header p {
   padding: 10px;
   border: 1px solid #ccc;
   margin-top: 10px;
+  overflow: auto; /* Permettre le défilement si le contenu dépasse */
 }

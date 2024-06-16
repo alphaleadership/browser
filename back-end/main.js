@@ -7,10 +7,15 @@ const log=(data)=>{
   console.log(data)
   fs.appendFileSync("../log.txt",`${data}\n`)
 }
-const { savePassword, getPasswords } = require('./database');
+//const { savePassword, getPasswords } = require('./database');
 const gen=(o)=>{
 var options ={...o}
 return options
+}
+try {
+  fs.mkdirSync("./logs")
+} catch (error) {
+  console.log(error)
 }
 proxyUrl="http://localhost:3000/"
 // Démarrer le serveur
@@ -119,7 +124,7 @@ ipcMain.handle('remove-cookie', async (event, url, name) => {
   await session.defaultSession.cookies.remove(url, name);
   return true;
 });
-
+/*
 // Gestion des mots de passe
 ipcMain.handle('save-password', (event, passwordData) => {
   const { url, username, password } = passwordData;
@@ -128,4 +133,4 @@ ipcMain.handle('save-password', (event, passwordData) => {
 
 ipcMain.handle('get-passwords', (event, url) => {
   return getPasswords(url);
-});
+});*/

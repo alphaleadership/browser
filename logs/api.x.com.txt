@@ -1,9 +1,0 @@
-https://api.x.com/1.1/jot/client_event.json
-https://api.x.com/1.1/jot/client_event.json
-https://api.x.com/1.1/jot/client_event.json
-https://api.x.com/1.1/jot/client_event.json
-https://api.x.com/1.1/jot/client_event.json
-https://api.x.com/1.1/help/settings.json?include_zero_rate=true&feature_set_token=051979536d606cb8b48c1053593c4d4361dca336&settings_version=8ef1a6b768856191a69396f5f5af8cd9
-https://api.x.com/1.1/hashflags.json
-https://api.x.com/1.1/jot/client_event.json
-https://api.x.com/1.1/jot/client_event.json
