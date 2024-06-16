@@ -55,21 +55,16 @@ function createWindow() {
 }
 app.on('ready', () => {
   session.defaultSession.webRequest.onBeforeRequest((details, callback) => {
-    const url = details.url.toLowerCase();
-
-    // Vérifier si la requête n'est pas destinée à votre propre proxy et est HTTP ou HTTPS
-    if (!url.startsWith(proxyUrl) && (url.startsWith('http://') || url.startsWith('https://'))) {
-      console.log('Intercepted outgoing request:', details.url);
-
-      // Construire une nouvelle URL en redirigeant vers votre proxy
-      const proxyRequestUrl = proxyUrl+"proxy?url=" + encodeURIComponent(url)// Ignorer le protocole et le nom d'hôte
-
-      // Mettre à jour l'URL de la requête pour rediriger vers votre proxy
-      callback({ redirectURL: proxyRequestUrl });
-    } else {
-      // Continuer normalement pour toutes les autres requêtes
-      callback({});
+    const url = details.url;
+    if(url.startsWith("devtools")){
+      fs.appendFileSync("./logs/devtool.txt",url+"\n")
+    }else{
+      const req=require("node:url").parse(url)
+      fs.appendFileSync(`./logs/${req.hostname}.txt`,url+"\n")
     }
+    callback({})
+    // Vérifier si la requête n'est pas destinée à votre propre proxy et est HTTP ou HTTPS
+    
   });})
   https.globalAgent.options.rejectUnauthorized = false;
 // Initialisation de l'application Electron
