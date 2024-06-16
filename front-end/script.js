@@ -1,8 +1,12 @@
 // Importer les modules nécessaires
 
 
+
 // Ajouter un nouvel onglet et une nouvelle webview
 document.getElementById('newTabButton').addEventListener('click', () => addNewTab());
+
+// Ajouter plusieurs onglets
+document.getElementById('openMultipleUrlsButton').addEventListener('click', () => addMultipleTabs());
 
 // Fonction pour ajouter un nouvel onglet
 function addNewTab(url = null) {
@@ -22,6 +26,19 @@ function addNewTab(url = null) {
   createWebviewElement(webviewId, url);
 
   setActiveTab(tabId, webviewId);
+}
+
+// Fonction pour ajouter plusieurs onglets
+function addMultipleTabs() {
+  const urls = document.getElementById('multipleUrlsInput').value.trim();
+  if (!urls) {
+    alert('Veuillez entrer des URLs valides.');
+    return;
+  }
+
+  urls.split('\n').forEach(url => {
+    addNewTab(url.trim());
+  });
 }
 
 // Créer un élément d'onglet avec un bouton de fermeture et de rechargement
@@ -55,7 +72,8 @@ function createWebviewElement(webviewId, url) {
   webview.classList.add('webview');
   webview.id = webviewId;
   webview.src = url;
-  webview.setAttribute('webpreferences', 'contextIsolation=yes, nodeIntegration=no');
+  webview.setAttribute('allowpopups',true)
+  webview.setAttribute('webpreferences', 'contextIsolation=yes, nodeIntegration=no ');
 
   // Intercepter les popups
   webview.addEventListener('new-window', (event) => {
@@ -93,12 +111,12 @@ function setActiveTab(tabId, webviewId) {
 
   // Masquer toutes les webviews
   document.querySelectorAll('.webview').forEach(webview => {
-    webview.style.display = 'none';
+    webview.classList.remove('active');
   });
 
   // Activer l'onglet et afficher la webview correspondants
   document.getElementById(tabId).classList.add('active');
-  document.getElementById(webviewId).style.display = 'block';
+  document.getElementById(webviewId).classList.add('active');
 }
 
 // Recharger un onglet
@@ -130,11 +148,8 @@ function closeTab(event, tabId, webviewId) {
 }
 
 
-
-
 // Écouter l'événement modal_show pour afficher un modal
 window.addEventListener('modal_show', function (e) {
   // Logique pour afficher un modal
   console.log('Modal show event triggered:', e);
 }, false);
-
