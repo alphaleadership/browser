@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  header p, header h2 {
+    margin: 5px 0;
+  }
+  
+  #mainContent {
+    flex: 1;
+    display: flex flex flex;
+    flex-direction: column;
+    overflow: hidden; /* S'assurer que le contenu ne déborde pas */
+  }
+  
+  #tabsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  
+  .tab {
+    padding: 10px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .tab.active {
+    background-color: #ccc;
+  }
+  
+  #webviewsContainer {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    position: relative; /* Permet de positionner les webviews en absolu */
+  }
+  
+  .webview {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none; /* Masquer toutes les webviews par défaut */
+    position: absolute; /* Permet de superposer les webviews */
+    top: 0;
+    left: 0;
+  }
+  
+  .webview.active {
+    display: block; /* Afficher uniquement la webview active */
+  }
+  
+  #cookiesOutput {
+    white-space: pre-wrap;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    overflow: auto; /* Permettre le défilement si le contenu dépasse */
+  }
+  
