@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extension Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .extension {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    .extension img {
+      width: 48px;
+      height: 48px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Extension Store</h1>
+  <div>
+    <input type="text" id="searchQuery" placeholder="Search for extensions">
+    <button onclick="searchExtensions()">Search</button>
+  </div>
+  <div id="extensions"></div>
+  <script>
+ 
+
+    async function searchExtensions() {
+      const query = document.getElementById('searchQuery').value;
+      const response = await fetch(`http://localhost:3000/api/search?q=${query}`);
+      const extensions = await response.json();
+      displayExtensions(extensions);
+    }
+
+    function displayExtensions(extensions) {
+      const extensionsContainer = document.getElementById('extensions');
+      extensionsContainer.innerHTML = '';
+      extensions.forEach(ext => {
+        const extDiv = document.createElement('div');
+        extDiv.className = 'extension';
+        extDiv.innerHTML = `
+          <img src="${ext.icon}" alt="${ext.name}">
+          <span>${ext.name}</span>
+          <button onclick="installExtension('${ext.url}')">Install</button>
+        `;
+        extensionsContainer.appendChild(extDiv);
+      });
+    }
+
+    async function installExtension(url) {
+      const response = await fetch('http://localhost:3000/api/install', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ url })
+      });
+      const result = await response.json();
+      if (result.success) {
+        alert('Extension installed successfully!');
+      } else {
+        alert('Failed to install extension.');
+      }
+    }
+  </script>
+</body>
+</html>

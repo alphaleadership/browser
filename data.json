@@ -1,0 +1,450 @@
+{
+  "config": {
+    "url": "https://customsearch.googleapis.com/customsearch/v1?cx=10b9b7895de1e43ae&q=chrome%20extension%20test&key=%20AIzaSyBpNP8SGDFLGN8a2AuR7WvVmGRFaIy26V0%20",
+    "method": "GET",
+    "apiVersion": "",
+    "userAgentDirectives": [
+      {
+        "product": "google-api-nodejs-client",
+        "version": "7.2.0",
+        "comment": "gzip"
+      }
+    ],
+    "headers": {
+      "x-goog-api-client": "gdcl/7.2.0 gl-node/20.14.0",
+      "Accept-Encoding": "gzip",
+      "User-Agent": "google-api-nodejs-client/7.2.0 (gzip)"
+    },
+    "params": {
+      "cx": "10b9b7895de1e43ae",
+      "q": "chrome extension test",
+      "key": " AIzaSyBpNP8SGDFLGN8a2AuR7WvVmGRFaIy26V0 "
+    },
+    "retry": true,
+    "responseType": "unknown"
+  },
+  "data": {
+    "kind": "customsearch#search",
+    "url": {
+      "type": "application/json",
+      "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+    },
+    "queries": {
+      "request": [
+        {
+          "title": "Google Custom Search - chrome extension test",
+          "totalResults": "20700",
+          "searchTerms": "chrome extension test",
+          "count": 10,
+          "startIndex": 1,
+          "inputEncoding": "utf8",
+          "outputEncoding": "utf8",
+          "safe": "off",
+          "cx": "10b9b7895de1e43ae"
+        }
+      ],
+      "nextPage": [
+        {
+          "title": "Google Custom Search - chrome extension test",
+          "totalResults": "20700",
+          "searchTerms": "chrome extension test",
+          "count": 10,
+          "startIndex": 11,
+          "inputEncoding": "utf8",
+          "outputEncoding": "utf8",
+          "safe": "off",
+          "cx": "10b9b7895de1e43ae"
+        }
+      ]
+    },
+    "context": {
+      "title": "arbinger"
+    },
+    "searchInformation": {
+      "searchTime": 0.266224,
+      "formattedSearchTime": "0.27",
+      "totalResults": "20700",
+      "formattedTotalResults": "20,700"
+    },
+    "items": [
+      {
+        "kind": "customsearch#result",
+        "title": "Test & Feedback",
+        "htmlTitle": "<b>Test</b> &amp; Feedback",
+        "link": "https://chromewebstore.google.com/detail/test-feedback/gnldpbnocfnlkkicnaplmkaphfdnlplb",
+        "displayLink": "chromewebstore.google.com",
+        "snippet": "Now everyone on the team can own quality. Capture findings, create issues, and collaborate with the team, directly from the browser. Test & Feedback - Now ...",
+        "htmlSnippet": "Now everyone on the team can own quality. Capture findings, create issues, and collaborate with the team, directly from the <b>browser</b>. <b>Test</b> &amp; Feedback - Now&nbsp;...",
+        "formattedUrl": "https://chromewebstore.google.com/.../test.../gnldpbnocfnlkkicnaplmkaphf...",
+        "htmlFormattedUrl": "https://<b>chrome</b>webstore.google.com/.../<b>test</b>.../gnldpbnocfnlkkicnaplmkaphf...",
+        "pagemap": {
+          "cse_thumbnail": [
+            {
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdCf2Dwbw4vtgC6lXHEpLLEnGQ4O_x2vqTJPAwXNEnHg8bUo_B8ZO2RWmG&s",
+              "width": "128",
+              "height": "128"
+            }
+          ],
+          "metatags": [
+            {
+              "referrer": "origin",
+              "og:image": "https://lh3.googleusercontent.com/8ngYQz1uiMOXaWDh5sXipwQf40pGpaDYI2pa8p1g-Y9mAhIF2l8I6uR4_SnNDyzNp-DLMY1-kih6t_B57VaKByxEhA=s128-rj-sc0x00ffffff",
+              "og:type": "website",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "og:title": "Test & Feedback",
+              "og:url": "https://chromewebstore.google.com/detail/test-feedback/gnldpbnocfnlkkicnaplmkaphfdnlplb",
+              "og:description": "Now everyone on the team can own quality. Capture findings, create issues, and collaborate with the team, directly from the browser."
+            }
+          ],
+          "cse_image": [
+            {
+              "src": "https://lh3.googleusercontent.com/8ngYQz1uiMOXaWDh5sXipwQf40pGpaDYI2pa8p1g-Y9mAhIF2l8I6uR4_SnNDyzNp-DLMY1-kih6t_B57VaKByxEhA=s128-rj-sc0x00ffffff"
+            }
+          ]
+        }
+      },
+      {
+        "kind": "customsearch#result",
+        "title": "axe DevTools - Web Accessibility Testing",
+        "htmlTitle": "axe DevTools - Web Accessibility <b>Testing</b>",
+        "link": "https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd",
+        "displayLink": "chromewebstore.google.com",
+        "snippet": "The free axe DevTools browser extension is a fast, lightweight, yet powerful testing tool driven by the world's most trusted accessibility testing engine ...",
+        "htmlSnippet": "The free axe DevTools <b>browser extension</b> is a fast, lightweight, yet powerful <b>testing</b> tool driven by the world&#39;s most trusted accessibility <b>testing</b> engine&nbsp;...",
+        "formattedUrl": "https://chromewebstore.google.com/.../lhdoppojpmngadmnindnejefpokejbd...",
+        "htmlFormattedUrl": "https://<b>chrome</b>webstore.google.com/.../lhdoppojpmngadmnindnejefpokejbd...",
+        "pagemap": {
+          "cse_thumbnail": [
+            {
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhiYYvNSj9Oso5rfP_HY32zU-YftmP1HnK6JoFp53Xfwyajt7InXzMLiR2&s",
+              "width": "128",
+              "height": "128"
+            }
+          ],
+          "metatags": [
+            {
+              "referrer": "origin",
+              "og:image": "https://lh3.googleusercontent.com/FAeHtqMDT3qrN6zuknas1KzOzMuJwo3OVzGsGPPVJMfcUz0iP7OpG8tjAB1uZ7IbP7_EkePpQbC7jZ8zbK_jBdIfzvY=s128-rj-sc0x00ffffff",
+              "og:type": "website",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "og:title": "axe DevTools - Web Accessibility Testing",
+              "og:url": "https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd",
+              "og:description": "Accessibility Checker for Developers, Testers, and Designers in Chrome"
+            }
+          ],
+          "cse_image": [
+            {
+              "src": "https://lh3.googleusercontent.com/FAeHtqMDT3qrN6zuknas1KzOzMuJwo3OVzGsGPPVJMfcUz0iP7OpG8tjAB1uZ7IbP7_EkePpQbC7jZ8zbK_jBdIfzvY=s128-rj-sc0x00ffffff"
+            }
+          ]
+        }
+      },
+      {
+        "kind": "customsearch#result",
+        "title": "WAVE Evaluation Tool",
+        "htmlTitle": "WAVE Evaluation Tool",
+        "link": "https://chromewebstore.google.com/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh",
+        "displayLink": "chromewebstore.google.com",
+        "snippet": "The extension no longer utilizes jQuery, resulting in faster testing and better compatibility with a variety of pages. A new Navigation Order panel is available ...",
+        "htmlSnippet": "The <b>extension</b> no longer utilizes jQuery, resulting in faster <b>testing</b> and better compatibility with a variety of pages. A new Navigation Order panel is available&nbsp;...",
+        "formattedUrl": "https://chromewebstore.google.com/.../jbbplnpkjmmeebjpijfedlgcdilocofh",
+        "htmlFormattedUrl": "https://<b>chrome</b>webstore.google.com/.../jbbplnpkjmmeebjpijfedlgcdilocofh",
+        "pagemap": {
+          "cse_thumbnail": [
+            {
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtJ7RjF1nR_hnQ0BmEpEkgKY-Y4xn4sqtXDiG5dzeb5suGDtvAiTtvOpCO&s",
+              "width": "128",
+              "height": "128"
+            }
+          ],
+          "metatags": [
+            {
+              "referrer": "origin",
+              "og:image": "https://lh3.googleusercontent.com/h2ECY8Ob8qxF28QRCB_hinHECmj0dyJHw1aGAKz_rBiK2USeQUT8M5WvqBpFssAYZo9nClfmKz3sKpS4P0TBlzhBkw=s128-rj-sc0x00ffffff",
+              "og:type": "website",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "og:title": "WAVE Evaluation Tool",
+              "og:url": "https://chromewebstore.google.com/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh",
+              "og:description": "Evaluate web accessibility within your browser."
+            }
+          ],
+          "cse_image": [
+            {
+              "src": "https://lh3.googleusercontent.com/h2ECY8Ob8qxF28QRCB_hinHECmj0dyJHw1aGAKz_rBiK2USeQUT8M5WvqBpFssAYZo9nClfmKz3sKpS4P0TBlzhBkw=s128-rj-sc0x00ffffff"
+            }
+          ]
+        }
+      },
+      {
+        "kind": "customsearch#result",
+        "title": "Mobile simulator - responsive testing tool",
+        "htmlTitle": "Mobile simulator - responsive <b>testing</b> tool",
+        "link": "https://chromewebstore.google.com/detail/mobile-simulator-responsi/ckejmhbmlajgoklhgbapkiccekfoccmk",
+        "displayLink": "chromewebstore.google.com",
+        "snippet": "Follows recommended practices for Chrome extensions. Learn more. Featured. 4.9 ... 55 devices are available for responsive testing 19 recent and old Android & ...",
+        "htmlSnippet": "Follows recommended practices for <b>Chrome extensions</b>. Learn more. Featured. 4.9 ... 55 devices are available for responsive <b>testing</b> 19 recent and old Android &amp;&nbsp;...",
+        "formattedUrl": "https://chromewebstore.google.com/.../ckejmhbmlajgoklhgbapkiccekfoccm...",
+        "htmlFormattedUrl": "https://<b>chrome</b>webstore.google.com/.../ckejmhbmlajgoklhgbapkiccekfoccm...",
+        "pagemap": {
+          "cse_thumbnail": [
+            {
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq961hBryflAXTNOba4z_2vv6-5qLbdskswIaR1PJUi1jVwb4mJiZbetE&s",
+              "width": "128",
+              "height": "128"
+            }
+          ],
+          "metatags": [
+            {
+              "referrer": "origin",
+              "og:image": "https://lh3.googleusercontent.com/AdZGgDWDCE3zyp1t_rJo1VT_9ge6l7QeFftWKrr2opJc4IgOmbQY82_4s44rGpHqZjw6ALtEsjlY8Sv1nERN-nAJEA=s128-rj-sc0x00ffffff",
+              "og:type": "website",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "og:title": "Mobile simulator - responsive testing tool",
+              "og:url": "https://chromewebstore.google.com/detail/mobile-simulator-responsi/ckejmhbmlajgoklhgbapkiccekfoccmk",
+              "og:description": "Smartphone and tablet simulator on computer with several models to test mobile responsive websites."
+            }
+          ],
+          "cse_image": [
+            {
+              "src": "https://lh3.googleusercontent.com/AdZGgDWDCE3zyp1t_rJo1VT_9ge6l7QeFftWKrr2opJc4IgOmbQY82_4s44rGpHqZjw6ALtEsjlY8Sv1nERN-nAJEA=s128-rj-sc0x00ffffff"
+            }
+          ]
+        }
+      },
+      {
+        "kind": "customsearch#result",
+        "title": "Responsive Viewer",
+        "htmlTitle": "Responsive Viewer",
+        "link": "https://chromewebstore.google.com/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb",
+        "displayLink": "chromewebstore.google.com",
+        "snippet": "Show multiple screens once, Responsive design tester. A Chrome extension to show multiple screens in one view. the extension will help front-end developers ...",
+        "htmlSnippet": "Show multiple screens once, Responsive design <b>tester</b>. A <b>Chrome extension</b> to show multiple screens in one view. the <b>extension</b> will help front-end developers&nbsp;...",
+        "formattedUrl": "https://chromewebstore.google.com/.../inmopeiepgfljkpkidclfgbgbmfcennb",
+        "htmlFormattedUrl": "https://<b>chrome</b>webstore.google.com/.../inmopeiepgfljkpkidclfgbgbmfcennb",
+        "pagemap": {
+          "cse_thumbnail": [
+            {
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYsrF3mOREJmqSasQIe7rtYHtH7lEiHIFWWTvFbc1UEsUAJAV8DmjyQDo&s",
+              "width": "128",
+              "height": "128"
+            }
+          ],
+          "metatags": [
+            {
+              "referrer": "origin",
+              "og:image": "https://lh3.googleusercontent.com/N6Af1HwxgGiTF6gcV23NjWg-w1fsGHD7jfAR2rqftSVvl5ZN08QDkETSXzHKQB88R97AZN1tPtu1B2CLis7mynSAng=s128-rj-sc0x00ffffff",
+              "og:type": "website",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "og:title": "Responsive Viewer",
+              "og:url": "https://chromewebstore.google.com/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb",
+              "og:description": "Show multiple screens once, Responsive design tester"
+            }
+          ],
+          "cse_image": [
+            {
+              "src": "https://lh3.googleusercontent.com/N6Af1HwxgGiTF6gcV23NjWg-w1fsGHD7jfAR2rqftSVvl5ZN08QDkETSXzHKQB88R97AZN1tPtu1B2CLis7mynSAng=s128-rj-sc0x00ffffff"
+            }
+          ]
+        }
+      },
+      {
+        "kind": "customsearch#result",
+        "title": "A11Y - Color blindness empathy test",
+        "htmlTitle": "A11Y - Color blindness empathy <b>test</b>",
+        "link": "https://chromewebstore.google.com/detail/a11y-color-blindness-empa/idphhflanmeibmjgaciaadkmjebljhcc",
+        "displayLink": "chromewebstore.google.com",
+        "snippet": "... Test/ Issues: https://github.com/vinceumo/A11Y-Color-Blindness-Empathy-Test-browser-extensions. 4.2 out of 5. 6 ratings. Google doesn't verify reviews. Learn ...",
+        "htmlSnippet": "... <b>Test</b>/ Issues: https://github.com/vinceumo/A11Y-Color-Blindness-Empathy-<b>Test</b>-<b>browser</b>-<b>extensions</b>. 4.2 out of 5. 6 ratings. <b>Google</b> doesn&#39;t verify reviews. Learn&nbsp;...",
+        "formattedUrl": "https://chromewebstore.google.com/.../idphhflanmeibmjgaciaadkmjebljhcc",
+        "htmlFormattedUrl": "https://<b>chrome</b>webstore.google.com/.../idphhflanmeibmjgaciaadkmjebljhcc",
+        "pagemap": {
+          "cse_thumbnail": [
+            {
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXKA0v47j-SscWXBqNxYjlQtLJEhQlqvFiq-UUMpJgDa-rUnFZ-CMbrvAa&s",
+              "width": "128",
+              "height": "128"
+            }
+          ],
+          "metatags": [
+            {
+              "referrer": "origin",
+              "og:image": "https://lh3.googleusercontent.com/ydt1xvhw1_27_Xb_M-WC8OuAgSDT5CYYvQkcpYWSE_SKy9JJKWW7FNRhN9LP5t07anXLSEwHk_glxKXcKjoOdyFZ=s128-rj-sc0x00ffffff",
+              "og:type": "website",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "og:title": "A11Y - Color blindness empathy test",
+              "og:url": "https://chromewebstore.google.com/detail/a11y-color-blindness-empa/idphhflanmeibmjgaciaadkmjebljhcc",
+              "og:description": "Empathy test for color blindness and visual impairment"
+            }
+          ],
+          "cse_image": [
+            {
+              "src": "https://lh3.googleusercontent.com/ydt1xvhw1_27_Xb_M-WC8OuAgSDT5CYYvQkcpYWSE_SKy9JJKWW7FNRhN9LP5t07anXLSEwHk_glxKXcKjoOdyFZ=s128-rj-sc0x00ffffff"
+            }
+          ]
+        }
+      },
+      {
+        "kind": "customsearch#result",
+        "title": "Ghost Inspector - Web Test Recorder",
+        "htmlTitle": "Ghost Inspector - Web <b>Test</b> Recorder",
+        "link": "https://chromewebstore.google.com/detail/ghost-inspector-web-test/aicdiabnghjnejfempeinmnphllefehc",
+        "displayLink": "chromewebstore.google.com",
+        "snippet": "Overview. Ghost Inspector extension for recording automated website tests in your browser. Ghost Inspector is an automated browser testing service that allow ...",
+        "htmlSnippet": "Overview. Ghost Inspector <b>extension</b> for recording automated website <b>tests</b> in your <b>browser</b>. Ghost Inspector is an automated <b>browser testing</b> service that allow&nbsp;...",
+        "formattedUrl": "https://chromewebstore.google.com/...test/aicdiabnghjnejfempeinmnphllefe...",
+        "htmlFormattedUrl": "https://<b>chrome</b>webstore.google.com/...<b>test</b>/aicdiabnghjnejfempeinmnphllefe...",
+        "pagemap": {
+          "cse_thumbnail": [
+            {
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPIr5jWn_kM76Q-Xe_kxoOxIsBbd6r_S42jSY7hcLjSbIhKNoiHRvHQcVb&s",
+              "width": "128",
+              "height": "128"
+            }
+          ],
+          "metatags": [
+            {
+              "referrer": "origin",
+              "og:image": "https://lh3.googleusercontent.com/ZZfS3LOLqlWmuCo-PD7cw7hlT4nOOPlqfkqdHy2_VKBW5QViUChSnpN5eAEcmkjAOLcO7Sd5ikY3x7b41fTBYwxT=s128-rj-sc0x00ffffff",
+              "og:type": "website",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "og:title": "Ghost Inspector - Web Test Recorder",
+              "og:url": "https://chromewebstore.google.com/detail/ghost-inspector-web-test/aicdiabnghjnejfempeinmnphllefehc",
+              "og:description": "Ghost Inspector extension for recording automated website tests in your browser"
+            }
+          ],
+          "cse_image": [
+            {
+              "src": "https://lh3.googleusercontent.com/ZZfS3LOLqlWmuCo-PD7cw7hlT4nOOPlqfkqdHy2_VKBW5QViUChSnpN5eAEcmkjAOLcO7Sd5ikY3x7b41fTBYwxT=s128-rj-sc0x00ffffff"
+            }
+          ]
+        }
+      },
+      {
+        "kind": "customsearch#result",
+        "title": "Endtest - Codeless Automated Testing",
+        "htmlTitle": "Endtest - Codeless Automated <b>Testing</b>",
+        "link": "https://chromewebstore.google.com/detail/endtest-codeless-automate/jbdgfkeimppmnfemmgfafiomihlibdfa",
+        "displayLink": "chromewebstore.google.com",
+        "snippet": "Record your Web Tests and add them to your Endtest account. The Endtest extension allows you to record Web Tests directly in your Chrome browser and add ...",
+        "htmlSnippet": "Record your Web <b>Tests</b> and add them to your Endtest account. The Endtest <b>extension</b> allows you to record Web <b>Tests</b> directly in your <b>Chrome browser</b> and add&nbsp;...",
+        "formattedUrl": "https://chromewebstore.google.com/.../endtest.../jbdgfkeimppmnfemmgfafi...",
+        "htmlFormattedUrl": "https://<b>chrome</b>webstore.google.com/.../end<b>test</b>.../jbdgfkeimppmnfemmgfafi...",
+        "pagemap": {
+          "cse_thumbnail": [
+            {
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHYJO44ledNWZ5YtXlPz1pINKzyszt6HZiJQMWQ9IXM3H9K3-d57qIAkVR&s",
+              "width": "128",
+              "height": "128"
+            }
+          ],
+          "metatags": [
+            {
+              "referrer": "origin",
+              "og:image": "https://lh3.googleusercontent.com/O1HQWJKnvg21Hh6TdWH4A7wf5b-qqfU1YG4ARa6DL-gz4BrHmiyOCsDIA6TCFuzkAfh_HFoMz-CL6QSd1mzkPfcXlQ=s128-rj-sc0x00ffffff",
+              "og:type": "website",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "og:title": "Endtest - Codeless Automated Testing",
+              "og:url": "https://chromewebstore.google.com/detail/endtest-codeless-automate/jbdgfkeimppmnfemmgfafiomihlibdfa",
+              "og:description": "Record your Web Tests and add them to your Endtest account."
+            }
+          ],
+          "cse_image": [
+            {
+              "src": "https://lh3.googleusercontent.com/O1HQWJKnvg21Hh6TdWH4A7wf5b-qqfU1YG4ARa6DL-gz4BrHmiyOCsDIA6TCFuzkAfh_HFoMz-CL6QSd1mzkPfcXlQ=s128-rj-sc0x00ffffff"
+            }
+          ]
+        }
+      },
+      {
+        "kind": "customsearch#result",
+        "title": "Salesforce Test Executions",
+        "htmlTitle": "Salesforce <b>Test</b> Executions",
+        "link": "https://chromewebstore.google.com/detail/salesforce-test-execution/eoncmkndnaiopjmchbinhejaobidnlah",
+        "displayLink": "chromewebstore.google.com",
+        "snippet": "Jun 10, 2024. As a Salesforce developer, I found the \"Salesforce Test Executions\" Chrome extension to be a highly productive tool. Here are my key points of ...",
+        "htmlSnippet": "Jun 10, 2024. As a Salesforce developer, I found the &quot;Salesforce <b>Test</b> Executions&quot; <b>Chrome extension</b> to be a highly productive tool. Here are my key points of&nbsp;...",
+        "formattedUrl": "https://chromewebstore.google.com/...test.../eoncmkndnaiopjmchbinhejaobi...",
+        "htmlFormattedUrl": "https://<b>chrome</b>webstore.google.com/...<b>test</b>.../eoncmkndnaiopjmchbinhejaobi...",
+        "pagemap": {
+          "cse_thumbnail": [
+            {
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDXyQpfPKUdutEdpMp_Aa_I25BglPjpf5Folizfe7BRkkMSCkS0ofookg&s",
+              "width": "128",
+              "height": "128"
+            }
+          ],
+          "metatags": [
+            {
+              "referrer": "origin",
+              "og:image": "https://lh3.googleusercontent.com/bwgvkm_ceVOv4teiK7x9nfjZ_2SA88mFXiumQIh3D7eofB9IzqivvxgI8ECtA844pHi0hG3brE2r9DM3XknSPGjR0g=s128-rj-sc0x00ffffff",
+              "og:type": "website",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "og:title": "Salesforce Test Executions",
+              "og:url": "https://chromewebstore.google.com/detail/salesforce-test-execution/eoncmkndnaiopjmchbinhejaobidnlah",
+              "og:description": "Salesforce developer and administrator tool to run Apex test classes and view code coverage from the Salesforce UI."
+            }
+          ],
+          "cse_image": [
+            {
+              "src": "https://lh3.googleusercontent.com/bwgvkm_ceVOv4teiK7x9nfjZ_2SA88mFXiumQIh3D7eofB9IzqivvxgI8ECtA844pHi0hG3brE2r9DM3XknSPGjR0g=s128-rj-sc0x00ffffff"
+            }
+          ]
+        }
+      },
+      {
+        "kind": "customsearch#result",
+        "title": "Adyen Test Cards",
+        "htmlTitle": "Adyen <b>Test</b> Cards",
+        "link": "https://chromewebstore.google.com/detail/adyen-test-cards/icllkfleeahmemjgoibajcmeoehkeoag",
+        "displayLink": "chromewebstore.google.com",
+        "snippet": "Adyen offers a convenient way to test your Checkout integration by providing test card numbers, Gift cards and IBANs. With the help of this Chrome extension, ...",
+        "htmlSnippet": "Adyen offers a convenient way to <b>test</b> your Checkout integration by providing <b>test</b> card numbers, Gift cards and IBANs. With the help of this <b>Chrome extension</b>,&nbsp;...",
+        "formattedUrl": "https://chromewebstore.google.com/...test.../icllkfleeahmemjgoibajcmeoehk...",
+        "htmlFormattedUrl": "https://<b>chrome</b>webstore.google.com/...<b>test</b>.../icllkfleeahmemjgoibajcmeoehk...",
+        "pagemap": {
+          "cse_thumbnail": [
+            {
+              "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeZox3v-HmriQwS8haYK2j82_xzFGNquo2u7Wygk01rcyCT-7GSkJwZ8bG&s",
+              "width": "128",
+              "height": "128"
+            }
+          ],
+          "metatags": [
+            {
+              "referrer": "origin",
+              "og:image": "https://lh3.googleusercontent.com/cSX5cIXgbrNEWh_WGKA6zmFv4U0gbkor6GZeXlghRfwnlaLD3ytbfXhJjdwUZGraMUNP_J27UfrWDYARwC30dOuafcQ=s128-rj-sc0x00ffffff",
+              "og:type": "website",
+              "viewport": "width=device-width, initial-scale=1.0",
+              "og:title": "Adyen Test Cards",
+              "og:url": "https://chromewebstore.google.com/detail/adyen-test-cards/icllkfleeahmemjgoibajcmeoehkeoag",
+              "og:description": "Copy and prefill Adyen test card numbers and other payment methods with a single click."
+            }
+          ],
+          "cse_image": [
+            {
+              "src": "https://lh3.googleusercontent.com/cSX5cIXgbrNEWh_WGKA6zmFv4U0gbkor6GZeXlghRfwnlaLD3ytbfXhJjdwUZGraMUNP_J27UfrWDYARwC30dOuafcQ=s128-rj-sc0x00ffffff"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "headers": {
+    "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+    "cache-control": "private",
+    "content-encoding": "gzip",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Thu, 20 Jun 2024 07:31:56 GMT",
+    "server": "ESF",
+    "transfer-encoding": "chunked",
+    "vary": "Origin, X-Origin, Referer",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "SAMEORIGIN",
+    "x-xss-protection": "0"
+  },
+  "status": 200,
+  "statusText": "OK",
+  "request": {
+    "responseURL": "https://customsearch.googleapis.com/customsearch/v1?cx=10b9b7895de1e43ae&q=chrome%20extension%20test&key=%20AIzaSyBpNP8SGDFLGN8a2AuR7WvVmGRFaIy26V0%20"
+  }
+}

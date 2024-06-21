@@ -4,25 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mon Navigateur Web</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="css.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+ <script defer src="script.js"></script>
 </head>
-<body>
-  <header>
-    <h1>Bienvenue sur mon navigateur web en Node.js</h1>
-    <p>Entrez une URL pour ouvrir dans un nouvel onglet :</p>
-    <input type="text" id="urlInput" placeholder="https://example.com">
-    <button id="newTabButton"class="newTabButton">Nouvel Onglet</button>
-    <p>Entrez plusieurs URLs (séparées par des saut de ligne ) pour ouvrir dans des onglets distincts :</p>
-    <textarea name="Text1" cols="40" rows="1"id="multipleUrlsInput"></textarea>
-    <button id="openMultipleUrlsButton">Ouvrir Plusieurs Onglets</button>
-    <hr>
-   
+<body class="flex flex-col h-screen font-sans bg-gray-100">
+  <header class="bg-blue-500 text-white">
+    <h1 class="text-xl font-bold">Bienvenue sur mon navigateur web en Node.js</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+      <div>
+        <p class="text-base">Entrez une URL pour ouvrir dans un nouvel onglet :</p>
+        <div class="flex items-center">
+          <input type="text" id="urlInput" placeholder="https://example.com" class="flex-grow border border-gray-300 rounded-md text-gray-800">
+          <button id="newTabButton" class="ml-2 bg-gray-200 border border-gray-300 rounded-md text-gray-800">Nouvel Onglet</button>
+        </div>
+      </div>
+      <div>
+        <p class="text-base">Entrez plusieurs URLs (séparées par des sauts de ligne) pour ouvrir dans des onglets distincts :</p>
+        <textarea id="multipleUrlsInput" class="w-full border border-gray-300 rounded-md text-gray-800" rows="2" placeholder="https://example1.com\nhttps://example2.com"></textarea>
+        <button id="openMultipleUrlsButton" class="mt-2 bg-gray-200 border border-gray-300 rounded-md text-gray-800">Ouvrir Plusieurs Onglets</button>
+      </div>
+    </div>
+    <hr class="my-4 border-gray-300">
   </header>
-  <main id="mainContent" class="mainContent">
-    <div id="tabsContainer"class="tabsContainer"></div>
-    <div id="webviewsContainer"class="webviewsContainer"></div>
+  <main id="mainContent" class="flex flex-col flex-1 overflow-hidden">
+    <div id="tabsContainer" class="flex overflow-x-auto whitespace-nowrap mb-4"></div>
+    <div id="webviewsContainer" class="relative flex-1 h-full w-full bg-white"></div>
   </main>
-  <script src="script.js"></script>
 </body>
 </html>

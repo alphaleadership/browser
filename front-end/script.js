@@ -1,5 +1,6 @@
 // Importer les modules nécessaires
 
+/*
 
 
 // Ajouter un nouvel onglet et une nouvelle webview
@@ -44,9 +45,10 @@ function addMultipleTabs() {
 // Créer un élément d'onglet avec un bouton de fermeture et de rechargement
 function createTabElement(tabId, webviewId, url) {
   const tab = document.createElement('div');
-  tab.classList.add('tab');
+;
   tab.id = tabId;
-
+  tab.classList.add('tab', 'p-2', 'm-1', 'bg-gray-100', 'border', 'border-gray-300', 'cursor-pointer', 'flex', 'items-center');
+    
   const tabContent = document.createElement('span');
   tabContent.textContent = extractHostname(url);
   tabContent.addEventListener('click', () => setActiveTab(tabId, webviewId));
@@ -74,7 +76,8 @@ function createWebviewElement(webviewId, url) {
   webview.src = url;
   webview.setAttribute('allowpopups',true)
   webview.setAttribute('webpreferences', 'contextIsolation=yes, nodeIntegration=no ');
-
+  webview.classList.add('webview', 'absolute', 'top-0', 'left-0', 'w-full', 'h-full', 'border-none');
+    
   // Intercepter les popups
   webview.addEventListener('new-window', (event) => {
     event.preventDefault();
@@ -146,10 +149,191 @@ function closeTab(event, tabId, webviewId) {
   tab.remove();
   webview.remove();
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const urlInput = document.getElementById('urlInput');
+  const newTabButton = document.getElementById('newTabButton');
+  const multipleUrlsInput = document.getElementById('multipleUrlsInput');
+  const openMultipleUrlsButton = document.getElementById('openMultipleUrlsButton');
+  const tabsContainer = document.getElementById('tabsContainer');
+  const webviewsContainer = document.getElementById('webviewsContainer');
 
+  let tabCount = 0;
 
-// Écouter l'événement modal_show pour afficher un modal
-window.addEventListener('modal_show', function (e) {
-  // Logique pour afficher un modal
-  console.log('Modal show event triggered:', e);
-}, false);
+  const createTab = (url, shouldLoad = true) => {
+    tabCount++;
+    const tabId = `tab-${tabCount}`;
+    const tab = document.createElement('div');
+    tab.classList.add('tab', 'px-2', 'py-1', 'm-1', 'bg-gray-100', 'border', 'border-gray-300', 'cursor-pointer', 'flex', 'items-center', 'rounded-md', 'text-gray-800', 'whitespace-nowrap');
+    tab.dataset.tab = tabId;
+
+    const tabTitle = document.createElement('span');
+    tabTitle.textContent = `Tab ${tabCount}`;
+    tab.appendChild(tabTitle);
+
+    const reloadButton = document.createElement('button');
+    reloadButton.textContent = '↻';
+    reloadButton.classList.add('ml-2', 'bg-gray-200', 'border', 'border-gray-300', 'rounded-md', 'text-gray-800', 'px-1');
+    reloadButton.addEventListener('click', (event) => {
+      event.stopPropagation(); // Prevent tab switch on button click
+      const webview = document.querySelector(`.webview[data-tab="${tabId}"]`);
+      if (!webview.src) {
+        webview.src = webview.dataset.url; // Load the iframe content if not loaded
+      } else {
+        webview.src = webview.src; // Reload the iframe content
+      }
+    });
+    tab.appendChild(reloadButton);
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = '✖';
+    deleteButton.classList.add('ml-2', 'bg-gray-200', 'border', 'border-gray-300', 'rounded-md', 'text-gray-800', 'px-1');
+    deleteButton.addEventListener('click', (event) => {
+      event.stopPropagation(); // Prevent tab switch on button click
+      const webview = document.querySelector(`.webview[data-tab="${tabId}"]`);
+      tab.remove();
+      webview.remove();
+      if (tab.classList.contains('bg-gray-300') && tabsContainer.firstChild) {
+        tabsContainer.firstChild.click();
+      }
+    });
+    tab.appendChild(deleteButton);
+
+    const webview = document.createElement('webview');
+    webview.classList.add('webview', 'absolute', 'top-0', 'left-0', 'w-full', 'h-full', 'border-none', 'hidden');
+    webview.dataset.tab = tabId;
+    webview.dataset.url = url;
+
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('bg-gray-300'));
+      document.querySelectorAll('.webview').forEach(w => w.classList.add('hidden'));
+
+      tab.classList.add('bg-gray-300');
+      webview.classList.remove('hidden');
+
+      if (!webview.src && shouldLoad) {
+        webview.src = webview.dataset.url;
+      }
+    });
+
+    tabsContainer.appendChild(tab);
+    webviewsContainer.appendChild(webview);
+
+    tab.click();
+  };
+
+  newTabButton.addEventListener('click', () => {
+    const url = urlInput.value.trim();
+    if (url) {
+      createTab(url);
+      urlInput.value = '';
+    }
+  });
+
+  openMultipleUrlsButton.addEventListener('click', () => {
+    const urls = multipleUrlsInput.value.trim().split('\n').filter(url => url);
+    urls.forEach(url => createTab(url,false));
+    multipleUrlsInput.value = '';
+  });
+});*/
+//const { ipcRenderer } = require('electron');
+window.addEventListener('DOMContentLoaded', () => {
+  const urlInput = document.getElementById('urlInput');
+  const newTabButton = document.getElementById('newTabButton');
+  const multipleUrlsInput = document.getElementById('multipleUrlsInput');
+  const openMultipleUrlsButton = document.getElementById('openMultipleUrlsButton');
+  const tabsContainer = document.getElementById('tabsContainer');
+  const webviewsContainer = document.getElementById('webviewsContainer');
+  newTabButton.addEventListener('click', () => {
+    const url = urlInput.value.trim();
+    if (url) {
+      createTab(url);
+      urlInput.value = '';
+    }
+  });
+
+  openMultipleUrlsButton.addEventListener('click', () => {
+    const urls = multipleUrlsInput.value.trim().split('\n').filter(url => url);
+    urls.forEach(url => createTab(url,false));
+    multipleUrlsInput.value = '';
+  });
+  const createTab = (url, shouldLoad = true) => {
+    window.api.saveWebviewUrl(url);
+    const tabId = `tab-${Date.now()}`; // Utiliser un ID unique basé sur le timestamp
+    const tab = document.createElement('div');
+    tab.classList.add('tab', 'px-2', 'py-1', 'm-1', 'bg-gray-100', 'border', 'border-gray-300', 'cursor-pointer', 'flex', 'items-center', 'rounded-md', 'text-gray-800', 'whitespace-nowrap');
+    tab.dataset.tab = tabId;
+
+    const tabTitle = document.createElement('span');
+    tabTitle.textContent = ` ${tabId}`;
+    tab.appendChild(tabTitle);
+
+    const reloadButton = document.createElement('button');
+    reloadButton.textContent = '↻';
+    reloadButton.classList.add('ml-2', 'bg-gray-200', 'border', 'border-gray-300', 'rounded-md', 'text-gray-800', 'px-1');
+    reloadButton.addEventListener('click', (event) => {
+      //event.stopPropagation(); // Prevent tab switch on button click
+      const webview = document.querySelector(`.webview[data-tab="${tabId}"]`);
+      if (!webview.src) {
+        webview.src = webview.dataset.url; // Load the iframe content if not loaded
+      } else {
+        webview.src = webview.src; // Reload the iframe content
+      }
+    });
+    tab.appendChild(reloadButton);
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = '✖';
+    deleteButton.classList.add('ml-2', 'bg-gray-200', 'border', 'border-gray-300', 'rounded-md', 'text-gray-800', 'px-1');
+    deleteButton.addEventListener('click', (event) => {
+      //event.stopPropagation(); // Prevent tab switch on button click
+      const webview = document.querySelector(`.webview[data-tab="${tabId}"]`);
+      window.api.removeWebviewUrl(webview.dataset.url); // Supprimer l'URL lors de la fermeture de l'onglet
+      tab.remove();
+      webview.remove();
+      if (tab.classList.contains('bg-gray-300') && tabsContainer.firstChild) {
+        tabsContainer.firstChild.click();
+      }
+    });
+    tab.appendChild(deleteButton);
+
+    const webview = document.createElement('webview');
+    webview.classList.add('webview', 'absolute', 'top-0', 'left-0', 'w-full', 'h-full', 'border-none', 'hidden');
+    webview.dataset.tab = tabId;
+    webview.dataset.url = url;
+    webview.addEventListener('context-menu', (e) => {
+      e.preventDefault();
+      window.electron.sendContextMenuEvent({
+          x: e.x,
+          y: e.y,
+          linkURL: webview.getURL() // ou une autre URL que vous souhaitez passer
+      });
+  });
+ 
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('bg-gray-300'));
+      document.querySelectorAll('.webview').forEach(w => w.classList.add('hidden'));
+
+      tab.classList.add('bg-gray-300');
+      webview.classList.remove('hidden');
+
+      if (!webview.src && shouldLoad) {
+        webview.src = webview.dataset.url;
+         // Sauvegarder l'URL lorsqu'elle est chargée dans la webview
+      }
+    });
+
+    tabsContainer.appendChild(tab);
+    webviewsContainer.appendChild(webview);
+
+    tab.click();
+  };
+
+  // Charger les URLs des webviews sauvegardées et créer les onglets
+  window.api.loadWebviewUrls().then((data)=>{
+   // console.log(data)
+    data.forEach(url => {
+      createTab("http://"+url, false);
+    });
+  });
+  
+});
