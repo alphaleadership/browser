@@ -22,6 +22,7 @@ var limiter = RateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // max 100 requests per windowMs
 });
+app.use(limiter)
 app.use(logger('dev'));
 // Route pour la proxy
 var accessLogStream = rfs.createStream('access.log', {
