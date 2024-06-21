@@ -17,6 +17,11 @@ var logger = require('morgan');
 const gapikey=" AIzaSyBpNP8SGDFLGN8a2AuR7WvVmGRFaIy26V0 "
 var rfs = require('rotating-file-stream'); 
 const { hostname } = require('os');
+var RateLimit = require('express-rate-limit');
+var limiter = RateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // max 100 requests per windowMs
+});
 app.use(logger('dev'));
 // Route pour la proxy
 var accessLogStream = rfs.createStream('access.log', {
@@ -54,7 +59,7 @@ function logUrlToFile(requestUrl) {
   fs.appendFileSync(logFilePath, `${new Date().toISOString()} - ${requestUrl}\n`);
 }
 const agent = new https.Agent({  
-  rejectUnauthorized: false
+  //rejectUnauthorized: false
 });
 // Configuration du proxy
 

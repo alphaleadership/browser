@@ -291,29 +291,7 @@ const agent = new https.Agent({
   rejectUnauthorized: false
 });
 // Gestion des requêtes HTTP GET via le proxy
-ipcMain.handle('make-request', async (event, options) => {
-  log(JSON.stringify(...options),null,2)
-  log(JSON.stringify(...event),null,2)
 
-  if (options.method && options.method.toLowerCase() !== 'get') {
-    return { error: 'Only GET method is supported.' };
-  }
-  log(JSON.stringify(...options),null,2)
-
-  try {
-  log(JSON.stringify(...options),null,2)
-    const response = await axios({
-      ...gen(options),
-      httpsAgent: agent,
-      url: `http://localhost:3000/proxy?url=${options.url}`
-    });
-    log(response)
-    return response.data;
-  } catch (error) {
-   log("erreur cotée serveur "+error)
-    return { error: error.message };
-  }
-});
 
 // Gestion des cookies
 ipcMain.handle('get-cookies', async (event, url) => {
