@@ -57,47 +57,7 @@ const agent = new https.Agent({
   rejectUnauthorized: false
 });
 // Configuration du proxy
-app.all('/proxy', async (req, res) => {
-  const targetUrl = decodeURIComponent(req.query.url);
-  try {
-    require("url").parse(targetUrl)
 
-  } catch (error) {
-    log(error)
-  }
- log(path.join(__dirname, './log3.txt'))
-  fs.appendFileSync(path.join(__dirname, './log3.txt'),targetUrl+"\n")
-  // Récupérer l'URL cible depuis les paramètres de requête
-  log(targetUrl)
-  try {
-    const axiosConfig = {
-      method: req.method,
-      url: targetUrl,
-      data:req.data,
-      headers: req.headers,
-      hostname:require("url").parse(targetUrl).hostname,
-      host:require("url").parse(targetUrl).host,
-      responseType: 'stream',
-      httpsAgent:agent // Adapter selon le type de réponse attendue
-    };
-    try{
-      const response = await axios(axiosConfig)
-    }catch(error){
-      console.log("erreur serveur "+JSON.stringify(error,null,2))
-    }
-    // Utilisation d'Axios pour envoyer la requête vers le domaine cible spécifié
-    
-
-    // Écriture de l'URL dans le fichier de journalisation
-    logUrlToFile(targetUrl);
-
-    // Envoi de la réponse du domaine cible au client
-    response.data.pipe(res);
-  } catch (error) {
-    log('Error proxying request:', error);
-    res.status(500).send('Proxying request failed');
-  }
-});
 app.get('/api/search', async (req, res) => {
   const query = req.query.q;
   if (!query) {
