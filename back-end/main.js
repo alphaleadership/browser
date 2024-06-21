@@ -288,7 +288,7 @@ app.whenReady().then(() => {
   });
 });
 const agent = new https.Agent({  
-  rejectUnauthorized: false
+ // rejectUnauthorized: false
 });
 // Gestion des requêtes HTTP GET via le proxy
 
