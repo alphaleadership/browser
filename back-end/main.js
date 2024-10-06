@@ -1,4 +1,4 @@
-const { app, BrowserWindow, session, ipcMain, Menu, dialog,MenuItem } = require('electron');
+const { app, BrowserWindow, session, ipcMain, Menu, dialog,MenuItem,webContents } = require('electron');
 const { loadChromeExtension, addExtension, removeExtension } = require('electron-chrome-extension');
 
 const path = require('path');
@@ -237,7 +237,30 @@ function createWindow() {
   contextMenu.append(new MenuItem({
       label: 'Inspect Element',
       click: () => {
-          mainWindow.webContents.inspectElement(rightClickPosition.x, rightClickPosition.y);
+          let url = rightClickUrl || mainWindow.webContents.getURL();
+          webContents.getAllWebContents().map((item)=>{
+            console.log(item)
+            item.executeJavaScript(`
+            var html = document.documentElement.outerHTML;
+              document.title = 'Source Code';
+              console.log(html)
+              new Promise((ok,nok)=>{ok(html)})
+            `).then((data)=>{console.log(data)
+              let file =new Date
+              fs.appendFileSync(`d:\\browser\\source_code_${file.getTime().toString()}.html`,data)
+            })
+          })
+          //webContents.downloadURL(url)
+         
+          mainWindow.webContents.executeJavaScript(`
+          var html = document.documentElement.outerHTML;
+            document.title = 'Source Code';
+            console.log(html)
+            new Promise((ok,nok)=>{ok(html)})
+          `).then((data)=>{console.log(data)
+            let file =new Date
+            fs.appendFileSync(`d:\\browser\\source_code_${file.getTime().toString()}.html`,data)
+          })
       }
   }));
 
@@ -260,20 +283,43 @@ function createWindow() {
   // Intercepter l'événement new-window pour ouvrir les popups dans une nouvelle webview
 }
 app.on('ready', () => {
+  console.log("ready")
   session.defaultSession.webRequest.onBeforeRequest((details, callback) => {
-    const url = details.url;
-    //saveLoadedUrl(url);
-    fs.appendFileSync("./logs/global.txt",url+"\n")
-    if(url.startsWith("devtools")){
-      fs.appendFileSync("./logs/devtool.txt",url+"\n")
-    }else{
-      const req=require("node:url").parse(url)
-      fs.appendFileSync(`./logs/${req.hostname}.txt`,url+"\n")
+    let url = new URL(details.url);
+    
+    // Supprimer les paramètres de suivi courants
+    url.searchParams.delete('utm_source');
+    url.searchParams.delete('utm_medium');
+    url.searchParams.delete('utm_campaign');
+    url.searchParams.delete('fbclid');
+    url.searchParams.delete('gclid');
+    url.searchParams.delete('signature')
+    // Convertir l'URL nettoyée en chaîne
+    const cleanUrl = url.toString();
+    
+    //saveLoadedUrl(cleanUrl);
+    fs.appendFileSync("./logs/global.txt", cleanUrl + "\n")
+    if(cleanUrl.startsWith("devtools")){
+      fs.appendFileSync("./logs/devtool.txt", cleanUrl + "\n")
+    } else {
+      const req = require("node:url").parse(cleanUrl)
+      fs.appendFileSync(`./logs/${req.hostname}.txt`, cleanUrl + "\n")
     }
     callback({})
     // Vérifier si la requête n'est pas destinée à votre propre proxy et est HTTP ou HTTPS
     
-  });})
+  });
+session.defaultSession.webRequest.onResponseStarted((details,callback)=>{
+ // log(JSON.stringify(details,null,2))
+  callback({})
+})
+session.defaultSession.webRequest.onCompleted((details,callback)=>{
+ // log(JSON.stringify(details,null,2))
+  callback({})
+})
+
+
+})
   https.globalAgent.options.rejectUnauthorized = false;
 // Initialisation de l'application Electron
 app.whenReady().then(() => {

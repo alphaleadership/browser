@@ -305,9 +305,40 @@ window.addEventListener('DOMContentLoaded', () => {
       window.electron.sendContextMenuEvent({
           x: e.x,
           y: e.y,
-          linkURL: webview.getURL() // ou une autre URL que vous souhaitez passer
+          linkURL: webview.getURL()
       });
-  });
+    });
+
+    // Vérifier si l'URL est un flux RSS
+    function isRssUrl(url) {
+      return url.endsWith('.rss') || url.endsWith('.xml') || url.includes('feed');
+    }
+    
+    if (isRssUrl(url)) {
+      // Traiter l'URL comme un flux RSS
+      webview.addEventListener('dom-ready', () => {
+        webview.executeJavaScript(`
+          const rssContent = document.body.innerText;
+          window.electron.sendRssContentEvent({
+            url: '${url}',
+            content: rssContent
+          });
+        `);
+      });
+    } else {
+      // Détecter les liens RSS sur les pages web normales
+      webview.addEventListener('dom-ready', () => {
+        webview.executeJavaScript(`
+          const rssLink = document.querySelector('link[type="application/rss+xml"]');
+          if (rssLink) {
+            window.electron.sendRssDetectedEvent({
+              url: '${url}',
+              rssUrl: rssLink.href
+            });
+          }
+        `);
+      });
+    }
  
     tab.addEventListener('click', () => {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('bg-gray-300'));
@@ -332,7 +363,7 @@ window.addEventListener('DOMContentLoaded', () => {
   window.api.loadWebviewUrls().then((data)=>{
    // console.log(data)
     data.forEach(url => {
-      createTab("http://"+url, false);
+      createTab(url, false);
     });
   });
   
