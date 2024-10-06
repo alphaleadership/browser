@@ -7,6 +7,6 @@ on:
 jobs:
   my_job:
        name: Electron Builder Action
-       uses: https://github.com/samuelmeuli/action-electron-builder
+       uses: https://github.com/samuelmeuli/action-electron-builder@1.60.0
    
             
