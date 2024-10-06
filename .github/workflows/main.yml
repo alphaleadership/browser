@@ -1,0 +1,12 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+    - release/*
+jobs:
+  my_job:
+       name: Electron Builder Action
+       uses: https://github.com/samuelmeuli/action-electron-builder
+   
+            
