@@ -1,5 +1,5 @@
 const sqlite3 = require('sqlite3').verbose();
-//wait2
+//wait
 // Configuration de la base de données SQLite
 const db = new sqlite3.Database('passwords.db');
 
