@@ -13,6 +13,7 @@
     "autoprefixer": "^10.4.19",
     "axios": "^1.7.2",
     "cheerio": "^1.0.0-rc.12",
+    "electron-builder": "^25.1.7",
     "electron-chrome-extension": "^5.0.0",
     "express": "^4.19.2",
     "express-rate-limit": "^7.3.1",
